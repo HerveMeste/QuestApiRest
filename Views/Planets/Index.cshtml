@@ -1,0 +1,63 @@
+﻿@model Planets
+
+<body>
+    <h2> Résultat </h2>
+    <div class="text-center">
+        <table class="table table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Diameter</th>
+                <th>Orbital period</th>
+                <th>Climate</th>
+                <th>Creation</th>
+                <th>Edition</th>
+                <th>Films</th>
+                <th>Gravity</th>
+                <th>Population</th>
+                <th>Residents</th>
+                <th>Rotation period</th>
+                <th>surface water</th>
+                <th>Terrain</th>
+                <th>Url</th>
+            </tr>   
+            <tr>
+                <td>@Model.name</td>
+                <td>@Model.diameter</td>
+                <td>@Model.orbital_period</td>
+                <td>@Model.climate</td>
+                <td>@Model.created</td>
+                <td>@Model.edited</td>
+                @{
+                    string urlFilms = "";
+                    foreach (string lien in Model.films)
+                    {
+                        urlFilms += lien + " ";
+                    }
+                    <td>@urlFilms</td>
+                }
+
+                <td>@Model.gravity</td>
+                <td>@Model.population</td>
+                @{
+                    string url = "";
+                    foreach (string lien in Model.residents)
+                    {
+                        url += lien + " ";
+                    }
+                    <td>@url</td>
+                }
+
+
+                <td>@Model.rotation_period</td>
+                <td>@Model.surface_water</td>
+                <td>@Model.terrain</td>
+                <td>@Model.url</td>
+                <td class="table-active"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+
